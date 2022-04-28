@@ -1,3 +1,8 @@
+<?php 
+session_start();
+session_destroy()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +23,13 @@
         <div class='form-group'>
             <label for='name'>Votre nom : </label>
             <input type='text' class='form-control' id='name' name='name'>
+            <?php if(!empty($_SESSION['emptyName'])){ echo "<span class='error'>" . $_SESSION['emptyName'] . "</span>";}?>
         </div>
         
         <div class='form-group'>
             <label for='firstName'>Votre prénom : </label>
             <input type='text' class='form-control' id='firstName' name='firstName'>
+            <?php echo "<span class='error'>" . $_SESSION['emptyFirstName'] . "</span>";?>
         </div>
 
         <div class='form-group'>
@@ -51,16 +58,19 @@
                 </label>
 
             </div>
+            <?php echo "<span class='error'>" . $_SESSION['emptyGender'] . "</span>";?>
         </div>
 
         <div class='form-group'>
             <label for='country'>Votre pays : </label>
             <input type='text' class='form-control' id='country' name='country'>
+            <?php echo "<span class='error'>" . $_SESSION['emptyCountry'] . "</span>";?>
         </div>
 
         <div class='form-group'>
             <label for='email'>Votre adresse mail : </label>
             <input type='email' class='form-control' id='email' name='email'>
+            <?php echo "<span class='error'>" . $_SESSION['emptyEmail'] . "</span>";?>
         </div>
 
         <div class='form-group'>

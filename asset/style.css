@@ -11,4 +11,9 @@ body .container-fluid {
   border-radius: 2%;
   padding: 30px;
 }
+
+body .container-fluid .error {
+  background-color: red;
+  padding: 0px 5px;
+}
 /*# sourceMappingURL=style.css.map */

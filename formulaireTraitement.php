@@ -1,4 +1,7 @@
 <?php
+
+    session_start();
+
     require 'vendor/autoload.php';
 
     use PHPMailer\PHPMailer\Exception;
@@ -7,9 +10,37 @@
 
     try
     {
-        if(isset($_POST['name']) AND isset($_POST['firstName']) AND isset($_POST['gender']) AND isset($_POST['email']) AND isset($_POST['country']) AND isset($_POST['reason']) AND isset($_POST['problem']))
-        {
+
     
+            if(empty($_POST['name'])) 
+            {
+                $_SESSION["emptyName"] = "Le nom est requis";
+            }
+
+            if(empty($_POST['firstName']))
+            {
+                $_SESSION['emptyFirstName'] = "Le prénom est requis";
+            }
+
+            if(empty($_POST['gender']))
+            {
+                $_SESSION['emptyGender'] = "Veuillez choisir votre sexe";
+            }
+
+            if(empty($_POST['email']))
+            {
+                $_SESSION['emptyEmail'] = "Veuillez inscrire votre email";
+            }
+
+            if(empty($_POST['country']))
+            {
+                $_SESSION['emptyCountry'] = "Veuillez indiquer votre pays";
+            }
+
+
+        if(isset($_POST['name']) AND isset($_POST['firstName']) AND isset($_POST['gender']) AND isset($_POST['country']) AND isset($_POST['email'])  AND isset($_POST['reason']) AND isset($_POST['problem']))
+        {
+            
             $name = htmlspecialchars(strtoupper($_POST['name']));
             $firstname = htmlspecialchars($_POST['firstName']);
             $gender = htmlspecialchars($_POST['gender']);
@@ -34,7 +65,7 @@
             $phpmailer->Password = '819a82499db978';
             $phpmailer->CharSet = 'UTF-8';
     
-            $phpmailer->setFrom('adressepoubelle.professionnel@gmail.com', 'Michelle');
+            $phpmailer->setFrom($email, $name . " " . $firstname);
             $phpmailer->addAddress('adressepoubelle.professionnel@gmail.com');
             $phpmailer->addReplyTo($email, $name, $firstname);
     
@@ -46,13 +77,13 @@
             $phpmailer->send();
             
             $confirmation = 1;
-            header('Location: index.php');
-  
+            
         }
-        else
-        {
-            echo "Des informations sont manquantes";
-        }
+        header('Location: index.php');
+        // else
+        // {
+        //     echo "Des informations sont manquantes";
+        // }
     }
     catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$phpmailer->ErrorInfo}";
