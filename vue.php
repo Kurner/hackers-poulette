@@ -13,7 +13,7 @@ session_destroy()
     <link href="https://fonts.googleapis.com/css2?family=Bellota:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../asset/style.css">
-    <title>Document</title>
+    <title>Support - Hacking Poulette</title>
 </head>
 <body>
 
@@ -106,7 +106,7 @@ session_destroy()
 
             <select class='form-control' id='reason' name='reason'>
                 <option value='On a volé mon vélo'>On a volé mon vélo</option>
-                <option value="J'ai pas retrouvé Nemo">J'ai pas retrouvé Nemo</option>
+                <option value="J'ai pas retrouvé Nemo">Nemo est perdu</option>
                 <option value='La raison 3'>La raison 3</option>
             </select>
             

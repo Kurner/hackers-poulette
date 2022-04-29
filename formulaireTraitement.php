@@ -87,7 +87,7 @@
             $phpmailer->Body = $messageContent;
             
             // Envoie du mail
-
+            
             $phpmailer->send();
 
             $_SESSION['mailSend'] = "Votre mail a bien été envoyé !";
