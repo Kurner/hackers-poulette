@@ -16,20 +16,36 @@ session_destroy()
     <title>Document</title>
 </head>
 <body>
+
     <div class='container-fluid'>
-       <span id='confirmation'></span>
+        <img class="logoHacker" src="../asset/img/hackers-poulette-logo.png" alt="Logo Hackers Poulette">
+         
+    <?php 
+        if(!empty($_SESSION['mailSend']))
+                    { 
+                        echo "<span class='valid'>" . $_SESSION['mailSend'] . "</span>";
+                    }
+    ?>
     
     <form action='formulaireTraitement.php' method='POST'>
         <div class='form-group'>
             <label for='name'>Votre nom : </label>
             <input type='text' class='form-control' id='name' name='name'>
-            <?php if(!empty($_SESSION['emptyName'])){ echo "<span class='error'>" . $_SESSION['emptyName'] . "</span>";}?>
+            <?php if(!empty($_SESSION['emptyName']))
+                { 
+                    echo "<span class='error'>" . $_SESSION['emptyName'] . "</span>";
+                }
+            ?>
         </div>
         
         <div class='form-group'>
             <label for='firstName'>Votre prénom : </label>
             <input type='text' class='form-control' id='firstName' name='firstName'>
-            <?php echo "<span class='error'>" . $_SESSION['emptyFirstName'] . "</span>";?>
+            <?php if(!empty($_SESSION['emptyFirstName']))
+                { 
+                    echo "<span class='error'>" . $_SESSION['emptyFirstName'] . "</span>";
+                }
+            ?>
         </div>
 
         <div class='form-group'>
@@ -58,19 +74,31 @@ session_destroy()
                 </label>
 
             </div>
-            <?php echo "<span class='error'>" . $_SESSION['emptyGender'] . "</span>";?>
+            <?php if(!empty($_SESSION['emptyGender']))
+                { 
+                    echo "<span class='error'>" . $_SESSION['emptyGender'] . "</span>";
+                }
+            ?>
         </div>
 
         <div class='form-group'>
             <label for='country'>Votre pays : </label>
             <input type='text' class='form-control' id='country' name='country'>
-            <?php echo "<span class='error'>" . $_SESSION['emptyCountry'] . "</span>";?>
+            <?php if(!empty($_SESSION['emptyCountry']))
+                { 
+                    echo "<span class='error'>" . $_SESSION['emptyCountry'] . "</span>";
+                }
+            ?>
         </div>
 
         <div class='form-group'>
             <label for='email'>Votre adresse mail : </label>
             <input type='email' class='form-control' id='email' name='email'>
-            <?php echo "<span class='error'>" . $_SESSION['emptyEmail'] . "</span>";?>
+            <?php if(!empty($_SESSION['emptyEmail']))
+                { 
+                    echo "<span class='error'>" . $_SESSION['emptyEmail'] . "</span>";
+                }
+            ?>
         </div>
 
         <div class='form-group'>
@@ -87,6 +115,11 @@ session_destroy()
         <div class='form-group'>
             <label for='problem'>Expliquez votre problème : </label>
             <textarea class='form-control' id='problem' name='problem' rows='3'></textarea>
+            <?php if(!empty($_SESSION['emptyProblem']))
+                { 
+                    echo "<span class='error'>" . $_SESSION['emptyProblem'] . "</span>";
+                }
+            ?>
         </div>
 
         <input type='submit' value='Envoyer'>

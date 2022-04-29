@@ -12,8 +12,19 @@ body .container-fluid {
   padding: 30px;
 }
 
+body .container-fluid .logoHacker {
+  width: 65%;
+  display: block;
+  margin: auto;
+}
+
 body .container-fluid .error {
   background-color: red;
+  padding: 0px 5px;
+}
+
+body .container-fluid .valid {
+  background-color: green;
   padding: 0px 5px;
 }
 /*# sourceMappingURL=style.css.map */
