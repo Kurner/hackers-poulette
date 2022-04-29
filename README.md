@@ -8,7 +8,7 @@
 - Duration: `3 days`
 - Deadline: `29/04/2022 17:00`
 - Host : https://www.heroku.com/ (or personnal host)
-- [My project](https://hackers-chicken.herokuapp.com/)
+- [My project](https://hackers-poulette-nicolas.herokuapp.com/)
 
 
 
